@@ -10,25 +10,40 @@ const Card = ({ title, subTitle, image }) => {
 				source={image}
 				blurRadius={Platform.OS === 'android' ? 2 : 2}
 			/>
-			<Text>{title}</Text>
-			<Text>{subTitle}</Text>
+			<View style={styles.subContainer}>
+				<Text style={styles.title}>{title}</Text>
+				<Text style={styles.subTitle}>{subTitle}</Text>
+			</View>
 		</View>
 	)
 }
 
 const styles = StyleSheet.create({
 	card: {
-		width: '90%',
+		width: '100%',
 		height: 'auto',
 		backgroundColor: colors.white,
 		borderRadius: 20,
-		alignSelf: 'center',
+		overflow: 'hidden',
+		marginVertical: 10,
 	},
 	image: {
-		borderTopRightRadius: 20,
-		borderTopLeftRadius: 20,
 		width: '100%',
 		height: 200,
+	},
+	subContainer: {
+		padding: 5,
+		paddingHorizontal: 20,
+	},
+	title: {
+		fontSize: 20,
+		fontWeight: '500',
+		marginBottom: 7,
+	},
+	subTitle: {
+		color: colors.secondary,
+		fontWeight: 'bold',
+		paddingBottom: 5,
 	},
 })
 
