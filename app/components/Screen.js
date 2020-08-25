@@ -1,19 +1,15 @@
 import React from 'react'
-import {SafeAreaView, StyleSheet, Platform } from 'react-native'
+import { SafeAreaView, StyleSheet, Platform } from 'react-native'
 import Constants from 'expo-constants'
 
-const Screen = ({childern}) => {
-    return (
-        <SafeAreaView style={styles.container}>
-            {childern}
-        </SafeAreaView>
-    )
+const Screen = ({ children }) => {
+	return <SafeAreaView style={styles.container}>{children}</SafeAreaView>
 }
 
 const styles = StyleSheet.create({
-    container: {
-        padingTop: Platform.OS === 'android' ? Constants.statusBarHeight : 0
-    }
+	container: {
+		paddingTop: Platform.OS === 'android' ? Constants.statusBarHeight : 0,
+	},
 })
 
 export default Screen

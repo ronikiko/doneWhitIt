@@ -1,26 +1,33 @@
 import React from 'react'
-import { View, StyleSheet, Image, Text } from 'react-native'
+import { View, StyleSheet, Image, Text, TouchableHighlight } from 'react-native'
 import colors from '../config/colors'
 import Screen from './Screen'
+import Swipeable from 'react-native-gesture-handler/Swipeable'
 
-const SelerInfo = ({ title, subTitle, image }) => {
+const SelerInfo = ({ title, subTitle, image, onPress, renderRightActions }) => {
 	return (
-			<Screen>
-				<View style={styles.container}>
-					<Image style={styles.image} source={image} />
-					<View>
-						<Text style={styles.title}>{title}</Text>
-						<Text style={styles.subTitle}>{subTitle}</Text>
+		<Screen>
+			<Swipeable renderRightActions={renderRightActions}>
+				<TouchableHighlight
+					onPress={onPress}
+					underlayColor={colors.superLight}
+				>
+					<View style={styles.container}>
+						<Image style={styles.image} source={image} />
+						<View>
+							<Text style={styles.title}>{title}</Text>
+							<Text style={styles.subTitle}>{subTitle}</Text>
+						</View>
 					</View>
-				</View>
-			</Screen>
+				</TouchableHighlight>
+			</Swipeable>
+		</Screen>
 	)
 }
 
 const styles = StyleSheet.create({
 	container: {
 		flexDirection: 'row',
-		
 	},
 	image: {
 		width: 70,
