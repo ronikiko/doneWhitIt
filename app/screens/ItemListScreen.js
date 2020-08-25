@@ -17,6 +17,7 @@ const ItemListScreen = ({ image, title, subTitle }) => {
 				title="moshe hamedani"
 				subTitle="soem info"
 			/>
+			
 		</View>
 	)
 }

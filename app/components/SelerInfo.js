@@ -1,23 +1,26 @@
 import React from 'react'
 import { View, StyleSheet, Image, Text } from 'react-native'
 import colors from '../config/colors'
+import Screen from './Screen'
 
 const SelerInfo = ({ title, subTitle, image }) => {
 	return (
-		<View style={styles.container}>
-			<Image style={styles.image} source={image} />
-			<View>
-				<Text style={styles.title}>{title}</Text>
-				<Text style={styles.subTitle}>{subTitle}</Text>
-			</View>
-		</View>
+			<Screen>
+				<View style={styles.container}>
+					<Image style={styles.image} source={image} />
+					<View>
+						<Text style={styles.title}>{title}</Text>
+						<Text style={styles.subTitle}>{subTitle}</Text>
+					</View>
+				</View>
+			</Screen>
 	)
 }
 
 const styles = StyleSheet.create({
 	container: {
 		flexDirection: 'row',
-		padding: 20,
+		
 	},
 	image: {
 		width: 70,

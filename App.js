@@ -3,13 +3,15 @@ import React from 'react'
 import { StyleSheet, View, Platform, SafeAreaView } from 'react-native'
 import ItemListScreen from './app/screens/ItemListScreen'
 import WellcomScreen from './app/screens/WellcomScreen'
+import ViewImageScreen from './app/screens/ViewImageScreen'
 // import Card from './app/components/Card'
+import MeassagesScreen from './app/screens/MessagesScreen'
 
 export default function App() {
 	return (
 		<View style={styles.container}>
 			<StatusBar style="auto" />
-			<WellcomScreen />
+			<MeassagesScreen />
 		</View>
 	)
 }
