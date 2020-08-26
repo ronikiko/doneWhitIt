@@ -8,9 +8,8 @@ const ListItemSeperator = () => {
 
 const styles = StyleSheet.create({
 	line: {
-		borderBottomColor: colors.light,
-		borderWidth: 0.5,
-		marginHorizontal: 20,
+		borderBottomColor: colors.superLight,
+		borderWidth: 0.3,
 	},
 })
 

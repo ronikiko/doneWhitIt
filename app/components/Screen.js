@@ -8,7 +8,7 @@ const Screen = ({ children }) => {
 
 const styles = StyleSheet.create({
 	container: {
-		paddingTop: Platform.OS === 'android' ? Constants.statusBarHeight : 0,
+		//	paddingTop: Platform.OS === 'android' ? Constants.statusBarHeight : 0,
 	},
 })
 

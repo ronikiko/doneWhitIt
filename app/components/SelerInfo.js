@@ -4,7 +4,14 @@ import colors from '../config/colors'
 import Screen from './Screen'
 import Swipeable from 'react-native-gesture-handler/Swipeable'
 
-const SelerInfo = ({ title, subTitle, image, onPress, renderRightActions }) => {
+const SelerInfo = ({
+	title,
+	subTitle,
+	image,
+	ImageComponent,
+	onPress,
+	renderRightActions,
+}) => {
 	return (
 		<Screen>
 			<Swipeable renderRightActions={renderRightActions}>
@@ -13,10 +20,13 @@ const SelerInfo = ({ title, subTitle, image, onPress, renderRightActions }) => {
 					underlayColor={colors.superLight}
 				>
 					<View style={styles.container}>
-						<Image style={styles.image} source={image} />
-						<View>
+						{ImageComponent}
+						{image && <Image style={styles.image} source={image} />}
+						<View style={styles.content}>
 							<Text style={styles.title}>{title}</Text>
-							<Text style={styles.subTitle}>{subTitle}</Text>
+							{subTitle && (
+								<Text style={styles.subTitle}>{subTitle}</Text>
+							)}
 						</View>
 					</View>
 				</TouchableHighlight>
@@ -27,13 +37,19 @@ const SelerInfo = ({ title, subTitle, image, onPress, renderRightActions }) => {
 
 const styles = StyleSheet.create({
 	container: {
+		width: '100%',
+		padding: 10,
 		flexDirection: 'row',
+		backgroundColor: colors.white,
+	},
+	content: {
+		marginHorizontal: 15,
+		justifyContent: 'center',
 	},
 	image: {
 		width: 70,
 		height: 70,
 		borderRadius: 35,
-		marginHorizontal: 15,
 	},
 	title: {
 		fontSize: 17,

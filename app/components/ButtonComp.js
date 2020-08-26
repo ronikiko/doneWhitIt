@@ -2,9 +2,10 @@ import React from 'react'
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import colors from '../config/colors'
 
-const ButtonComp = ({ title, bgColor }) => {
+const ButtonComp = ({ title, bgColor, onPress }) => {
 	return (
 		<TouchableOpacity
+			onPress={onPress}
 			style={[styles.container, { backgroundColor: bgColor }]}
 		>
 			<View>

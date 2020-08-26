@@ -10,7 +10,7 @@ import {
 import ButtonComp from '../components/ButtonComp'
 import colors from '../config/colors'
 
-const WellcomScreen = () => {
+const WellcomScreen = ({ navigation }) => {
 	return (
 		<ImageBackground
 			blurRadius={Platform.OS === 'android' ? 5 : 10}
@@ -25,7 +25,12 @@ const WellcomScreen = () => {
 				<Text style={styles.headerText}>Sell What You Dont Need!</Text>
 			</View>
 
-			<ButtonComp title="login" bgColor={colors.primary} />
+			<ButtonComp
+				title="login"
+				bgColor={colors.primary}
+				onPress={() => navigation.navigate('Account')}
+				//onPress={() => console.log('dsds~')}
+			/>
 			<ButtonComp title="register" bgColor={colors.secondary} />
 		</ImageBackground>
 	)
