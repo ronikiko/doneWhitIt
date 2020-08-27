@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { StyleSheet, View, FlatList, TouchableHighlight } from 'react-native'
+import { FlatList } from 'react-native'
 import SelerInfo from '../components/SelerInfo'
 
 import ListItemSeperator from '../components/ListItemSeperator'
@@ -67,7 +67,5 @@ const MessagesScreen = () => {
 		/>
 	)
 }
-
-const styles = StyleSheet.create({})
 
 export default MessagesScreen

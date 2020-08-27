@@ -37,7 +37,7 @@ const AccountScreen = ({ navigation }) => {
 			</View>
 			<View style={styles.container}>
 				<FlatList
-					// ItemSeparatorComponent={ListItemSeperator}
+					ItemSeparatorComponent={ListItemSeperator}
 					data={manuItems}
 					keyExtractor={(menu) => menu.title}
 					renderItem={({ item }) => {

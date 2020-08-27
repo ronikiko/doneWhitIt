@@ -1,19 +1,53 @@
-import React from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import React, { useState } from 'react'
+import { View, FlatList, StyleSheet } from 'react-native'
 
+const listings = [
+	{
+		id: 1,
+		title: 'red shirt in very good condition 😜',
+		price: '$100',
+		image: require('../../assets/jacket.jpg'),
+	},
+	{
+		id: 2,
+		title: 'couch for sell very good condition 😜',
+		price: '$100',
+		image: require('../../assets/couch.jpg'),
+	},
+	{
+		id: 3,
+		title: 'red shirt in very good condition 😜',
+		price: '$100',
+		image: require('../../assets/jacket.jpg'),
+	},
+	{
+		id: 4,
+		title: 'red shirt in very good condition 😜',
+		price: '$100',
+		image: require('../../assets/jacket.jpg'),
+	},
+]
 import Card from '../components/Card'
+
 const ListingsScreen = () => {
+	const [lists, setLists] = useState(listings)
+	const [refreshing, setRwfrwshing] = useState(false)
 	return (
 		<View style={styles.container}>
-			<Card
-				title="new"
-				subTitle="$100"
-				image={require('../../assets/jacket.jpg')}
-			/>
-			<Card
-				title="new"
-				subTitle="$1000"
-				image={require('../../assets/couch.jpg')}
+			<FlatList
+				refreshing={refreshing}
+				onRefresh={() => {
+					setLists(lists)
+				}}
+				data={lists}
+				keyExtractor={(list) => list.id.toString()}
+				renderItem={({ item }) => (
+					<Card
+						title={item.title}
+						subTitle={item.price}
+						image={item.image}
+					/>
+				)}
 			/>
 		</View>
 	)
