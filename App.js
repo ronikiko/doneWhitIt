@@ -8,7 +8,7 @@ import ViewImageScreen from './app/screens/ViewImageScreen'
 import MeassagesScreen from './app/screens/MessagesScreen'
 import AccountScreen from './app/screens/AccountScreen'
 import ListingsScreen from './app/screens/ListingsScreen'
-import { Header } from 'react-native/Libraries/NewAppScreen'
+import LoginScreen from './app/screens/LoginInScreen'
 
 const Stack = createStackNavigator()
 
@@ -22,9 +22,16 @@ const App = () => {
 					component={WellcomScreen}
 					options={{ header: () => null }}
 				/>
-				<Stack.Screen name="Account" component={AccountScreen} />
+				<Stack.Screen
+					options={{
+						header: () => null,
+					}}
+					name="Account"
+					component={AccountScreen}
+				/>
 				<Stack.Screen name="Messages" component={MeassagesScreen} />
 				<Stack.Screen name="Listings" component={ListingsScreen} />
+				<Stack.Screen name="Login" component={LoginScreen} />
 			</Stack.Navigator>
 		</NavigationContainer>
 	)

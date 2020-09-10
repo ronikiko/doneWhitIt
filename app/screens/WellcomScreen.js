@@ -28,7 +28,7 @@ const WellcomScreen = ({ navigation }) => {
 			<ButtonComp
 				title="login"
 				bgColor={colors.primary}
-				onPress={() => navigation.navigate('Account')}
+				onPress={() => navigation.navigate('Login')}
 				//onPress={() => console.log('dsds~')}
 			/>
 			<ButtonComp title="register" bgColor={colors.secondary} />
@@ -40,7 +40,6 @@ const styles = StyleSheet.create({
 	header: {
 		position: 'absolute',
 		top: 70,
-
 		alignItems: 'center',
 	},
 	headerText: {
@@ -54,6 +53,7 @@ const styles = StyleSheet.create({
 		justifyContent: 'flex-end',
 		alignItems: 'center',
 		paddingBottom: 10,
+		padding: 20,
 	},
 	logo: {
 		width: 100,

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { View, FlatList, StyleSheet } from 'react-native'
+import Card from '../components/Card'
 
 const listings = [
 	{
@@ -27,7 +28,6 @@ const listings = [
 		image: require('../../assets/jacket.jpg'),
 	},
 ]
-import Card from '../components/Card'
 
 const ListingsScreen = () => {
 	const [lists, setLists] = useState(listings)

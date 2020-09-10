@@ -2,7 +2,7 @@ import React from 'react'
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import colors from '../config/colors'
 
-const ButtonComp = ({ title, bgColor, onPress }) => {
+const ButtonComp = ({ title, bgColor = colors.primary, onPress }) => {
 	return (
 		<TouchableOpacity
 			onPress={onPress}
@@ -17,7 +17,7 @@ const ButtonComp = ({ title, bgColor, onPress }) => {
 
 const styles = StyleSheet.create({
 	container: {
-		width: '80%',
+		width: '100%',
 		height: 50,
 		backgroundColor: colors.primary,
 		borderRadius: 20,
