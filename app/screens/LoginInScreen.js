@@ -4,7 +4,7 @@ import AppTextinput from '../components/AppTextinput'
 import Screen from '../components/Screen'
 import ButtonComp from '../components/ButtonComp'
 
-const LoginInScreen = () => {
+const LoginInScreen = ({navigation}) => {
 	const [email, setEmail] = useState()
 	const [password, setPassword] = useState()
 
@@ -33,7 +33,7 @@ const LoginInScreen = () => {
 
 			<ButtonComp
 				title="Login"
-				onPress={() => console.log(email, password)}
+				onPress={() => navigation.navigate('Account') }
 			/>
 		</Screen>
 	)
