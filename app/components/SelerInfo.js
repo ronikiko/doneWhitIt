@@ -11,6 +11,7 @@ const SelerInfo = ({
 	ImageComponent,
 	onPress,
 	renderRightActions,
+	style,
 }) => {
 	return (
 		<Screen>
@@ -19,7 +20,7 @@ const SelerInfo = ({
 					onPress={onPress}
 					underlayColor={colors.superLight}
 				>
-					<View style={styles.container}>
+					<View style={[styles.container, style]}>
 						{ImageComponent}
 						{image && <Image style={styles.image} source={image} />}
 						<View style={styles.content}>

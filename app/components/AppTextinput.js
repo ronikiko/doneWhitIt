@@ -21,8 +21,8 @@ const styles = StyleSheet.create({
 		borderColor: '#c8d6e5',
 		borderRadius: 20,
 		padding: 10,
-		backgroundColor: '#f1f2f6',
 		marginBottom: 20,
+		backgroundColor: '#fff',
 	},
 	input: {
 		flex: 1,
