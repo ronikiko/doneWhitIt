@@ -1,16 +1,17 @@
 import React from 'react'
-import { View, Image, StyleSheet, Text } from 'react-native'
-import AppTextinput from '../components/AppTextinput'
+import { Image, StyleSheet } from 'react-native'
+import AppFormFiled from '../components/AppFormFiled'
 import Screen from '../components/Screen'
 import ButtonComp from '../components/ButtonComp'
-import { Formik } from 'formik'
+import AppForm from '../components/AppForm'
 import * as Yup from 'yup'
-import ErrMessage from '../components/ErrMessage'
+import SubmitButton from '../components/SubmitButton'
 
 const validationSchema = Yup.object({
 	email: Yup.string().required().email().label('Email'),
-	password: Yup.string().required().length(4).label('Password'),
+	password: Yup.string().required().length(6).label('Password'),
 })
+
 const LoginInScreen = ({ navigation }) => {
 	return (
 		<Screen style={styles.con}>
@@ -18,58 +19,37 @@ const LoginInScreen = ({ navigation }) => {
 				style={styles.logo}
 				source={require('../../assets/logo-red.png')}
 			/>
-			<Formik
+			<AppForm
 				initialValues={{ email: '', password: '' }}
 				onSubmit={(values) => console.log(values)}
 				validationSchema={validationSchema}
 			>
-				{({
-					handleChange,
-					handleSubmit,
-					errors,
-					setFieldTouched,
-					touched,
-				}) => (
-					<>
-						<AppTextinput
-							placeholder="Email"
-							autoCapitalize="none"
-							autoCorrect={false}
-							icon="email"
-							onBlur={() => setFieldTouched('email')}
-							onChangeText={handleChange('email')}
-						/>
-						<ErrMessage
-							error={errors.email}
-							visable={touched.email}
-						/>
+				<AppFormFiled
+					placeholder="Email"
+					name="email"
+					autoCapitalize="none"
+					autoCorrect={false}
+					icon="email"
+				/>
 
-						<AppTextinput
-							autoCapitalize="none"
-							autoCorrect={false}
-							icon="lock"
-							onBlur={() => setFieldTouched('password')}
-							onChangeText={handleChange('password')}
-							placeholder="Password"
-							secureTextEntry={true}
-						/>
-						{/* error message component*/}
+				<AppFormFiled
+					autoCapitalize="none"
+					autoCorrect={false}
+					icon="lock"
+					name="password"
+					placeholder="Password"
+					secureTextEntry
+				/>
+				{/* error message component*/}
 
-						<ErrMessage
-							error={errors.password}
-							visable={touched.password}
-						/>
+				<SubmitButton title="Log In" />
 
-						<ButtonComp title="Login" onPress={handleSubmit} />
-
-						<ButtonComp
-							title="Go In"
-							bgColor="#ccc"
-							onPress={() => navigation.navigate('Account')}
-						/>
-					</>
-				)}
-			</Formik>
+				<ButtonComp
+					title="Go In"
+					bgColor="#ccc"
+					onPress={() => navigation.navigate('Account')}
+				/>
+			</AppForm>
 		</Screen>
 	)
 }

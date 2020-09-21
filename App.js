@@ -9,6 +9,7 @@ import MeassagesScreen from './app/screens/MessagesScreen'
 import AccountScreen from './app/screens/AccountScreen'
 import ListingsScreen from './app/screens/ListingsScreen'
 import LoginScreen from './app/screens/LoginInScreen'
+import StartScreen from './app/screens/StartScreen'
 
 const Stack = createStackNavigator()
 
@@ -22,6 +23,7 @@ const App = () => {
 					component={WellcomScreen}
 					options={{ header: () => null }}
 				/>
+				<Stack.Screen name="Start" component={StartScreen} />
 				<Stack.Screen
 					options={{
 						header: () => null,
