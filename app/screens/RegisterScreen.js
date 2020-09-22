@@ -1,29 +1,39 @@
 import React from 'react'
 import { Image, StyleSheet } from 'react-native'
-import {AppFormFiled, AppForm, SubmitButton } from '../components/forms'
 import Screen from '../components/Screen'
+import {AppFormFiled, AppForm, SubmitButton } from '../components/forms'
 import ButtonComp from '../components/ButtonComp'
 import * as Yup from 'yup'
 
 
 const validationSchema = Yup.object({
 	email: Yup.string().required().email().label('Email'),
+	name: Yup.string().required().label('Name'),
 	password: Yup.string().required().length(6).label('Password'),
 })
 
-const LoginInScreen = ({ navigation }) => {
-	return (
-		<Screen style={styles.con}>
+
+const RegisterScreen = ({navigation}) => {
+    return (
+        <Screen style={styles.con}>
 			<Image
 				style={styles.logo}
 				source={require('../../assets/logo-red.png')}
 			/>
-			<AppForm
-				initialValues={{ email: '', password: '' }}
-				onSubmit={(values) => console.log(values)}
-				validationSchema={validationSchema}
-			>
-				<AppFormFiled
+            <AppForm
+            initialValues={{ name:'', email: '', password: '' }}
+            onSubmit={(values) => console.log(values)}
+            validationSchema={validationSchema}
+            >
+                 <AppFormFiled
+					placeholder="Name"
+					name="name"
+					autoCapitalize="none"
+					autoCorrect={false}
+					icon="account"
+				/>
+
+                <AppFormFiled
 					placeholder="Email"
 					name="email"
 					autoCapitalize="none"
@@ -41,20 +51,20 @@ const LoginInScreen = ({ navigation }) => {
 				/>
 				{/* error message component*/}
 
-				<SubmitButton title="Login" />
-
-				<ButtonComp
+				<SubmitButton title="Register" />
+                <ButtonComp
 					title="Go In"
 					bgColor="#ccc"
 					onPress={() => navigation.navigate('Account')}
 				/>
-			</AppForm>
-		</Screen>
-	)
+
+            </AppForm>
+        </Screen>
+    )
 }
 
 const styles = StyleSheet.create({
-	con: {
+    con: {
 		margin: 20,
 	},
 	logo: {
@@ -69,4 +79,4 @@ const styles = StyleSheet.create({
 	},
 })
 
-export default LoginInScreen
+export default RegisterScreen

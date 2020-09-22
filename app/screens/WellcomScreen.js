@@ -31,7 +31,7 @@ const WellcomScreen = ({ navigation }) => {
 				onPress={() => navigation.navigate('Login')}
 				//onPress={() => console.log('dsds~')}
 			/>
-			<ButtonComp title="register" bgColor={colors.secondary} />
+			<ButtonComp title="register" bgColor={colors.secondary} onPress={() => navigation.navigate('Register')} />
 		</ImageBackground>
 	)
 }
