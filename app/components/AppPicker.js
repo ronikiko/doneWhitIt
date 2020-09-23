@@ -1,30 +1,66 @@
-import React, {useState} from 'react'
-import { View, Text, StyleSheet, Button, FlatList, TouchableWithoutFeedback, Modal } from 'react-native'
+import React, { useState } from 'react'
+import {
+	View,
+	Text,
+	StyleSheet,
+	Button,
+	FlatList,
+	TouchableWithoutFeedback,
+	Modal,
+} from 'react-native'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import Screen from './Screen'
 import PickerItem from './PickerItem'
+import { useFormikContext } from 'formik'
 
-const AppPicker = ({ color = '#000',placeholder, items, onSelectItem, selectedItem}) => {
+const AppPicker = ({
+	color = '#000',
+	placeholder,
+	items,
+	onSelectItem,
+	selectedItem,
+}) => {
+	const { values, setValues } = useFormikContext()
 	const [visibleModel, setVisibleModel] = useState(false)
+
 	return (
 		<>
-			<TouchableWithoutFeedback onPress={() =>setVisibleModel(true)}>
+			<TouchableWithoutFeedback onPress={() => setVisibleModel(true)}>
 				<View style={styles.container}>
-					<MaterialCommunityIcons name="apps" color={color} size={30} />
-					<Text style={styles.input}>{selectedItem ? selectedItem.label : placeholder}</Text>
-					<MaterialCommunityIcons name="chevron-down" color={color} size={30} />
+					<MaterialCommunityIcons
+						name="apps"
+						color={color}
+						size={30}
+					/>
+					<Text style={styles.input}>
+						{values.category ? values.category : placeholder}
+					</Text>
+					<MaterialCommunityIcons
+						name="chevron-down"
+						color={color}
+						size={30}
+					/>
 				</View>
 			</TouchableWithoutFeedback>
 			<Modal visible={visibleModel} animationType="slide">
 				<Screen>
-					<Button title="close" onPress={() => setVisibleModel(false) }/>
-					<FlatList 
+					<Button
+						title="close"
+						onPress={() => setVisibleModel(false)}
+					/>
+					<FlatList
 						data={items}
-						keyExtractor={item => item.values.toString()}
-						renderItem={({ item }) => <PickerItem  item={item.label} onPress={() =>{
-							setVisibleModel(false)
-							onSelectItem(item)
-						}} />}
+						keyExtractor={(item) => item.values.toString()}
+						renderItem={({ item }) => (
+							<PickerItem
+								item={item.label}
+								onPress={() => {
+									setValues({ category: item.label })
+									setVisibleModel(false)
+									onSelectItem(item)
+								}}
+							/>
+						)}
 					/>
 				</Screen>
 			</Modal>
