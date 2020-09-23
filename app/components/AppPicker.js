@@ -1,13 +1,34 @@
-import React from 'react'
-import { View, TextInput, StyleSheet } from 'react-native'
+import React, {useState} from 'react'
+import { View, Text, StyleSheet, Button, FlatList, TouchableWithoutFeedback, Modal } from 'react-native'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
+import Screen from './Screen'
+import PickerItem from './PickerItem'
 
-const AppPicker = ({ icon, color = '#000', ...allprops }) => {
+const AppPicker = ({ color = '#000',placeholder, items, onSelectItem, selectedItem}) => {
+	const [visibleModel, setVisibleModel] = useState(false)
 	return (
-		<View style={styles.container}>
-			<MaterialCommunityIcons name={icon} color={color} size={30} />
-			<TextInput {...allprops} style={styles.input} />
-		</View>
+		<>
+			<TouchableWithoutFeedback onPress={() =>setVisibleModel(true)}>
+				<View style={styles.container}>
+					<MaterialCommunityIcons name="apps" color={color} size={30} />
+					<Text style={styles.input}>{selectedItem ? selectedItem.label : placeholder}</Text>
+					<MaterialCommunityIcons name="chevron-down" color={color} size={30} />
+				</View>
+			</TouchableWithoutFeedback>
+			<Modal visible={visibleModel} animationType="slide">
+				<Screen>
+					<Button title="close" onPress={() => setVisibleModel(false) }/>
+					<FlatList 
+						data={items}
+						keyExtractor={item => item.values.toString()}
+						renderItem={({ item }) => <PickerItem  item={item.label} onPress={() =>{
+							setVisibleModel(false)
+							onSelectItem(item)
+						}} />}
+					/>
+				</Screen>
+			</Modal>
+		</>
 	)
 }
 

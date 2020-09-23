@@ -1,19 +1,24 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { Image, StyleSheet } from 'react-native'
 import Screen from '../components/Screen'
 import {AppFormFiled, AppForm, SubmitButton } from '../components/forms'
 import ButtonComp from '../components/ButtonComp'
 import * as Yup from 'yup'
-
+import AppPicker from '../components/AppPicker'
 
 const validationSchema = Yup.object({
 	email: Yup.string().required().email().label('Email'),
 	name: Yup.string().required().label('Name'),
 	password: Yup.string().required().length(6).label('Password'),
 })
-
+const categories = [
+	{label: 'food', values:1},
+	{label: 'pets', values:2},
+	{label: 'cars', values:3}
+]
 
 const RegisterScreen = ({navigation}) => {
+	const [category, setCtegory] = useState(categories[0])
     return (
         <Screen style={styles.con}>
 			<Image
@@ -32,6 +37,13 @@ const RegisterScreen = ({navigation}) => {
 					autoCorrect={false}
 					icon="account"
 				/>
+
+				<AppPicker 
+					items={categories}
+					placeholder="Categories"
+					onSelectItem={item => setCtegory(item)}
+					selectedItem={category}
+					/>
 
                 <AppFormFiled
 					placeholder="Email"
