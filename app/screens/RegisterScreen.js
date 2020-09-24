@@ -4,7 +4,7 @@ import Screen from '../components/Screen'
 import {AppFormFiled, AppForm, SubmitButton } from '../components/forms'
 import ButtonComp from '../components/ButtonComp'
 import * as Yup from 'yup'
-import AppPicker from '../components/AppPicker'
+
 
 const validationSchema = Yup.object({
 	email: Yup.string().required().email().label('Email'),
@@ -38,12 +38,7 @@ const RegisterScreen = ({navigation}) => {
 					icon="account"
 				/>
 
-				<AppPicker 
-					items={categories}
-					placeholder="Categories"
-					onSelectItem={item => setCtegory(item)}
-					selectedItem={category}
-					/>
+			
 
                 <AppFormFiled
 					placeholder="Email"

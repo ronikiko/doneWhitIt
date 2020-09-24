@@ -11,7 +11,6 @@ import ListingsScreen from './app/screens/ListingsScreen'
 import LoginScreen from './app/screens/LoginInScreen'
 import RegisterScreen from './app/screens/RegisterScreen'
 import StartScreen from './app/screens/StartScreen'
-import EditlistingScreen from './app/screens/EditlistingScreen'
 
 const Stack = createStackNavigator()
 
@@ -34,7 +33,6 @@ const App = () => {
 					component={AccountScreen}
 				/>
 				<Stack.Screen name="Messages" component={MeassagesScreen} />
-				<Stack.Screen name="Edit" component={EditlistingScreen} />
 				<Stack.Screen name="Register" component={RegisterScreen} />
 				<Stack.Screen name="Listings" component={ListingsScreen} />
 				<Stack.Screen name="Login" component={LoginScreen} />
