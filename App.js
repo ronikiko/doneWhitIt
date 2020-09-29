@@ -10,6 +10,7 @@ import AccountScreen from './app/screens/AccountScreen'
 import ListingsScreen from './app/screens/ListingsScreen'
 import LoginScreen from './app/screens/LoginInScreen'
 import RegisterScreen from './app/screens/RegisterScreen'
+import EditListingScreen from './app/screens/EditListingScreen'
 import StartScreen from './app/screens/StartScreen'
 
 const Stack = createStackNavigator()
@@ -33,6 +34,7 @@ const App = () => {
 					component={AccountScreen}
 				/>
 				<Stack.Screen name="Messages" component={MeassagesScreen} />
+				<Stack.Screen name="Edit" component={EditListingScreen} />
 				<Stack.Screen name="Register" component={RegisterScreen} />
 				<Stack.Screen name="Listings" component={ListingsScreen} />
 				<Stack.Screen name="Login" component={LoginScreen} />
