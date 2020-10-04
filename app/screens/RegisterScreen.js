@@ -1,10 +1,9 @@
-import React,{useState} from 'react'
+import React, { useState } from 'react'
 import { Image, StyleSheet } from 'react-native'
 import Screen from '../components/Screen'
-import {AppFormFiled, AppForm, SubmitButton } from '../components/forms'
+import { AppFormFiled, AppForm, SubmitButton } from '../components/forms'
 import ButtonComp from '../components/ButtonComp'
 import * as Yup from 'yup'
-
 
 const validationSchema = Yup.object({
 	email: Yup.string().required().email().label('Email'),
@@ -12,25 +11,25 @@ const validationSchema = Yup.object({
 	password: Yup.string().required().length(6).label('Password'),
 })
 const categories = [
-	{label: 'food', values:1},
-	{label: 'pets', values:2},
-	{label: 'cars', values:3}
+	{ label: 'food', values: 1 },
+	{ label: 'pets', values: 2 },
+	{ label: 'cars', values: 3 },
 ]
 
-const RegisterScreen = ({navigation}) => {
+const RegisterScreen = ({ navigation }) => {
 	const [category, setCtegory] = useState(categories[0])
-    return (
-        <Screen style={styles.con}>
+	return (
+		<Screen style={styles.con}>
 			<Image
 				style={styles.logo}
 				source={require('../../assets/logo-red.png')}
 			/>
-            <AppForm
-            initialValues={{ name:'', email: '', password: '' }}
-            onSubmit={(values) => console.log(values)}
-            validationSchema={validationSchema}
-            >
-                 <AppFormFiled
+			<AppForm
+				initialValues={{ name: '', email: '', password: '' }}
+				onSubmit={(values) => console.log(values)}
+				validationSchema={validationSchema}
+			>
+				<AppFormFiled
 					placeholder="Name"
 					name="name"
 					autoCapitalize="none"
@@ -38,9 +37,7 @@ const RegisterScreen = ({navigation}) => {
 					icon="account"
 				/>
 
-			
-
-                <AppFormFiled
+				<AppFormFiled
 					placeholder="Email"
 					name="email"
 					autoCapitalize="none"
@@ -58,20 +55,21 @@ const RegisterScreen = ({navigation}) => {
 				/>
 				{/* error message component*/}
 
+				{/*Submit button*/}
 				<SubmitButton title="Register" />
-                <ButtonComp
+
+				<ButtonComp
 					title="Go In"
 					bgColor="#ccc"
 					onPress={() => navigation.navigate('Account')}
 				/>
-
-            </AppForm>
-        </Screen>
-    )
+			</AppForm>
+		</Screen>
+	)
 }
 
 const styles = StyleSheet.create({
-    con: {
+	con: {
 		margin: 20,
 	},
 	logo: {

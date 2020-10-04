@@ -15,8 +15,17 @@ const AppPicker = ({
 	selectedCategory,
 	onSelectCategory,
 }) => {
+	// handle the modal
 	const [visibleModal, setVisibleModal] = useState(false)
-	const { setFieldValue, handleChange, errors, touched } = useFormikContext()
+	// formik staff
+	const {
+		setFieldValue,
+		handleChange,
+		errors,
+		touched,
+		values,
+	} = useFormikContext()
+	console.log(values)
 
 	return (
 		<>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Image, StyleSheet } from 'react-native'
 import {
 	AppFormFiled,
@@ -23,13 +23,13 @@ const categories = [
 	{ label: 'Galleries', value: 3 },
 ]
 
-const EditListingScreen = ({ navigation }) => {
-	const [category, setCategory] = useState(categories[0])
+const EditListingScreen = ({ navigation, values, setFieldValue, route }) => {
+	console.log(route.params.title)
 	return (
 		<Screen style={styles.con}>
 			<AppForm
 				initialValues={{
-					title: '',
+					title: route.params.title,
 					price: '',
 					category: null,
 					description: '',
@@ -38,11 +38,11 @@ const EditListingScreen = ({ navigation }) => {
 				validationSchema={validationSchema}
 			>
 				<AppFormFiled
-					placeholder="Title"
+					placeholder={route.params.title}
 					name="title"
 					autoCapitalize="none"
 					autoCorrect={false}
-					icon="title"
+					icon="format-title"
 				/>
 
 				<AppFormFiled
@@ -50,12 +50,12 @@ const EditListingScreen = ({ navigation }) => {
 					name="price"
 					autoCapitalize="none"
 					autoCorrect={false}
-					icon="monay"
+					icon="cash-usd"
 				/>
 
 				<AppPicker
-					selectedCategory={category}
-					onSelectCategory={(item) => setCategory(item)}
+					selectedCategory={values}
+					onSelectCategory={(item) => setFieldValue(item)}
 					items={categories}
 					name="category"
 					placeholder="category"

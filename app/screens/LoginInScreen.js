@@ -1,14 +1,13 @@
 import React from 'react'
 import { Image, StyleSheet } from 'react-native'
-import {AppFormFiled, AppForm, SubmitButton } from '../components/forms'
+import { AppFormFiled, AppForm, SubmitButton } from '../components/forms'
 import Screen from '../components/Screen'
 import ButtonComp from '../components/ButtonComp'
 import * as Yup from 'yup'
 
-
 const validationSchema = Yup.object({
 	email: Yup.string().required().email().label('Email'),
-	password: Yup.string().required().length(6).label('Password'),
+	password: Yup.string().required().min(6).label('Password'),
 })
 
 const LoginInScreen = ({ navigation }) => {

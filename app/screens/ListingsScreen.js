@@ -29,7 +29,7 @@ const listings = [
 	},
 ]
 
-const ListingsScreen = () => {
+const ListingsScreen = ({ navigation }) => {
 	const [lists, setLists] = useState(listings)
 	const [refreshing, setRwfrwshing] = useState(false)
 	return (
@@ -46,6 +46,7 @@ const ListingsScreen = () => {
 						title={item.title}
 						subTitle={item.price}
 						image={item.image}
+						navigation={navigation}
 					/>
 				)}
 			/>

@@ -1,14 +1,13 @@
 import React from 'react'
 import {
 	View,
-	Text,
 	Image,
 	StyleSheet,
 	SafeAreaView,
 	TouchableOpacity,
 } from 'react-native'
 import colors from '../config/colors'
-import { EvilIcons, Feather } from '@expo/vector-icons'
+import { EvilIcons } from '@expo/vector-icons'
 
 const ListImage = () => {
 	return (

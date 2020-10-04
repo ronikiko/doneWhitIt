@@ -1,20 +1,24 @@
 import React from 'react'
-import { View, Text, StyleSheet, Image } from 'react-native'
+import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native'
 import colors from '../config/colors'
 
-const Card = ({ title, subTitle, image }) => {
+const Card = ({ title, subTitle, image, navigation }) => {
 	return (
-		<View style={styles.card}>
-			<Image
-				style={styles.image}
-				source={image}
-				blurRadius={Platform.OS === 'android' ? 2 : 2}
-			/>
-			<View style={styles.subContainer}>
-				<Text style={styles.title}>{title}</Text>
-				<Text style={styles.subTitle}>{subTitle}</Text>
+		<TouchableOpacity
+			onPress={() => navigation.navigate('Edit', { title, subTitle })}
+		>
+			<View style={styles.card}>
+				<Image
+					style={styles.image}
+					source={image}
+					blurRadius={Platform.OS === 'android' ? 2 : 2}
+				/>
+				<View style={styles.subContainer}>
+					<Text style={styles.title}>{title}</Text>
+					<Text style={styles.subTitle}>{subTitle}</Text>
+				</View>
 			</View>
-		</View>
+		</TouchableOpacity>
 	)
 }
 

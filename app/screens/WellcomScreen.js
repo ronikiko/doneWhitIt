@@ -34,7 +34,7 @@ const WellcomScreen = ({ navigation }) => {
 			<ButtonComp
 				title="register"
 				bgColor={colors.secondary}
-				onPress={() => navigation.navigate('Edit')}
+				onPress={() => navigation.navigate('Register')}
 			/>
 		</ImageBackground>
 	)
