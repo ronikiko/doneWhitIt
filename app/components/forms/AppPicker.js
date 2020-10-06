@@ -25,7 +25,7 @@ const AppPicker = ({
 		touched,
 		values,
 	} = useFormikContext()
-	console.log(values)
+	
 
 	return (
 		<>
