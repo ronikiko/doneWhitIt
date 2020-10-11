@@ -1,14 +1,13 @@
 import React, { useState } from 'react'
-import { Image, StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native'
 import {
 	AppFormFiled,
 	AppForm,
 	SubmitButton,
-	AppPicker,
+	AppFormPicker,
 } from '../components/forms'
 
 import Screen from '../components/Screen'
-import ButtonComp from '../components/ButtonComp'
 import * as Yup from 'yup'
 
 const validationSchema = Yup.object({
@@ -30,9 +29,9 @@ const EditListingScreen = ({ navigation, values, route }) => {
 		<Screen style={styles.con}>
 			<AppForm
 				initialValues={{
-					title: route.params.title,
-					price: route.params.subTitle,
-					category: field,
+					title: '',
+					price: '',
+					category: '',
 					description: '',
 				}}
 				onSubmit={(values) => console.log(values)}
@@ -54,9 +53,9 @@ const EditListingScreen = ({ navigation, values, route }) => {
 					icon="cash-usd"
 				/>
 
-				<AppPicker
+				<AppFormPicker
 					selectedCategory={field}
-					onSelectCategory={(item) => setFieldValue(item.label)}
+					onSelectCategory={(item) => setFieldValue(item)}
 					items={categories}
 					name="category"
 					placeholder="category"
@@ -70,7 +69,9 @@ const EditListingScreen = ({ navigation, values, route }) => {
 					autoCorrect={false}
 					icon="text"
 				/>
+
 				<SubmitButton title="submit" />
+
 			</AppForm>
 		</Screen>
 	)

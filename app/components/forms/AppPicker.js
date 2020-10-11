@@ -25,10 +25,6 @@ const AppPicker = ({
 		touched,
 		values,
 	} = useFormikContext()
-<<<<<<< HEAD
-	
-=======
->>>>>>> cb66921761a7773d55997c11845f290506689398
 
 	return (
 		<>
@@ -62,7 +58,7 @@ const AppPicker = ({
 								onPress={() => {
 									console.log(item.label)
 									setFieldValue(item)
-									onSelectCategory(item.label)
+									onSelectCategory(item)
 									setVisibleModal(false)
 								}}
 							/>
