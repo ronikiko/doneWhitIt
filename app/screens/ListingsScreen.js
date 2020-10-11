@@ -6,25 +6,25 @@ const listings = [
 	{
 		id: 1,
 		title: 'red shirt in very good condition 😜',
-		price: '$100',
+		price: '390',
 		image: require('../../assets/jacket.jpg'),
 	},
 	{
 		id: 2,
-		title: 'couch for sell very good condition 😜',
-		price: '$100',
+		title: 'couch for sell very good condition 🧠',
+		price: '200',
 		image: require('../../assets/couch.jpg'),
 	},
 	{
 		id: 3,
-		title: 'red shirt in very good condition 😜',
-		price: '$100',
+		title: 'red shirt in very good condition 🥶',
+		price: '100',
 		image: require('../../assets/jacket.jpg'),
 	},
 	{
 		id: 4,
-		title: 'red shirt in very good condition 😜',
-		price: '$100',
+		title: 'red shirt in very good condition 💗 ',
+		price: '30',
 		image: require('../../assets/jacket.jpg'),
 	},
 ]

@@ -25,7 +25,10 @@ const AppPicker = ({
 		touched,
 		values,
 	} = useFormikContext()
+<<<<<<< HEAD
 	
+=======
+>>>>>>> cb66921761a7773d55997c11845f290506689398
 
 	return (
 		<>
@@ -42,6 +45,7 @@ const AppPicker = ({
 					<ErrMessage error={errors[name]} visable={touched[name]} />
 				</View>
 			</TouchableWithoutFeedback>
+
 			<Modal visible={visibleModal} animationType="slide">
 				<Screen>
 					<Button
@@ -56,7 +60,9 @@ const AppPicker = ({
 							<PickerItem
 								item={item.label}
 								onPress={() => {
-									onSelectCategory(item)
+									console.log(item.label)
+									setFieldValue(item)
+									onSelectCategory(item.label)
 									setVisibleModal(false)
 								}}
 							/>
