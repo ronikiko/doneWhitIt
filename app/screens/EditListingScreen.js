@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Image, StyleSheet } from 'react-native'
 import {
 	AppFormFiled,
@@ -6,6 +6,7 @@ import {
 	SubmitButton,
 	AppPicker,
 } from '../components/forms'
+
 import Screen from '../components/Screen'
 import ButtonComp from '../components/ButtonComp'
 import * as Yup from 'yup'
@@ -13,7 +14,7 @@ import * as Yup from 'yup'
 const validationSchema = Yup.object({
 	title: Yup.string().required().min(3).label('Title'),
 	price: Yup.number().required().max(10000).label('Price'),
-	category: Yup.object().nullable().label('Price'),
+	category: Yup.object().nullable().label('Category'),
 	description: Yup.string().label('Description'),
 })
 
@@ -23,15 +24,15 @@ const categories = [
 	{ label: 'Galleries', value: 3 },
 ]
 
-const EditListingScreen = ({ navigation, values, setFieldValue, route }) => {
-	console.log(route.params.title)
+const EditListingScreen = ({ navigation, values, route }) => {
+	const [field, setFieldValue] = useState(categories[1])
 	return (
 		<Screen style={styles.con}>
 			<AppForm
 				initialValues={{
 					title: route.params.title,
-					price: '',
-					category: null,
+					price: route.params.subTitle,
+					category: field,
 					description: '',
 				}}
 				onSubmit={(values) => console.log(values)}
@@ -46,7 +47,7 @@ const EditListingScreen = ({ navigation, values, setFieldValue, route }) => {
 				/>
 
 				<AppFormFiled
-					placeholder="Price"
+					placeholder={route.params.subTitle}
 					name="price"
 					autoCapitalize="none"
 					autoCorrect={false}
@@ -54,8 +55,8 @@ const EditListingScreen = ({ navigation, values, setFieldValue, route }) => {
 				/>
 
 				<AppPicker
-					selectedCategory={values}
-					onSelectCategory={(item) => setFieldValue(item)}
+					selectedCategory={field}
+					onSelectCategory={(item) => setFieldValue(item.label)}
 					items={categories}
 					name="category"
 					placeholder="category"
@@ -69,6 +70,7 @@ const EditListingScreen = ({ navigation, values, setFieldValue, route }) => {
 					autoCorrect={false}
 					icon="text"
 				/>
+				<SubmitButton title="submit" />
 			</AppForm>
 		</Screen>
 	)
