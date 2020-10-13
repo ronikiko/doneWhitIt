@@ -13,7 +13,7 @@ import * as Yup from 'yup'
 const validationSchema = Yup.object({
 	title: Yup.string().required().min(3).label('Title'),
 	price: Yup.number().required().max(10000).label('Price'),
-	category: Yup.object().nullable().label('Category'),
+	category: Yup.object().required().nullable().label('Category'),
 	description: Yup.string().label('Description'),
 })
 
@@ -71,7 +71,6 @@ const EditListingScreen = ({ navigation, values, route }) => {
 				/>
 
 				<SubmitButton title="submit" />
-
 			</AppForm>
 		</Screen>
 	)

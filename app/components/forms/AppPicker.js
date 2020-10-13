@@ -57,7 +57,7 @@ const AppPicker = ({
 								item={item.label}
 								onPress={() => {
 									console.log(item.label)
-									setFieldValue(item)
+									setFieldValue(name, item)
 									onSelectCategory(item)
 									setVisibleModal(false)
 								}}

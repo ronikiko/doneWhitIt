@@ -10,7 +10,8 @@ const MessagesScreen = () => {
 	const init = [
 		{
 			id: '1',
-			title: 'D1',
+			title:
+				'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi vitae ex suscipit. Optio, fuga sunt laborum quae expedita doloremque delectus a necessitatibus, amet rerum vitae temporibus, aliquam inventore tempora. Officiis!',
 			description: 'D1',
 			image: require('../../assets/roni.png'),
 		},

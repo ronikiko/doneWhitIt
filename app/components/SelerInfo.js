@@ -3,6 +3,7 @@ import { View, StyleSheet, Image, Text, TouchableHighlight } from 'react-native'
 import colors from '../config/colors'
 import Screen from './Screen'
 import Swipeable from 'react-native-gesture-handler/Swipeable'
+import AppText from '../components/AppText'
 
 const SelerInfo = ({
 	title,
@@ -24,9 +25,13 @@ const SelerInfo = ({
 						{ImageComponent}
 						{image && <Image style={styles.image} source={image} />}
 						<View style={styles.content}>
-							<Text style={styles.title}>{title}</Text>
+							<AppText style={styles.title} numberOfLines={1}>
+								{title}
+							</AppText>
 							{subTitle && (
-								<Text style={styles.subTitle}>{subTitle}</Text>
+								<AppText style={styles.subTitle}>
+									{subTitle}
+								</AppText>
 							)}
 						</View>
 					</View>
@@ -44,6 +49,8 @@ const styles = StyleSheet.create({
 		backgroundColor: colors.white,
 	},
 	content: {
+		width: 200,
+		overflow: 'hidden',
 		marginHorizontal: 15,
 		justifyContent: 'center',
 	},
@@ -53,7 +60,7 @@ const styles = StyleSheet.create({
 		borderRadius: 35,
 	},
 	title: {
-		fontSize: 17,
+		fontSize: 16,
 	},
 	subTitle: {
 		color: colors.light,

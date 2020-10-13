@@ -31,10 +31,6 @@ const AccountScreen = ({ navigation }) => {
 			<Text style={styles.header}>Account</Text>
 			<View style={styles.container}>
 				<SelerInfo
-					style={{
-						borderTopRightRadius: 40,
-						borderTopLeftRadius: 40,
-					}}
 					title="Roni Kiko"
 					subTitle="A Free Lancer guy!😇 "
 					image={require('../../assets/roni.png')}

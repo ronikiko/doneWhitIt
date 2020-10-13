@@ -1,15 +1,18 @@
 import React from 'react'
-import { View, Text, Image, StyleSheet } from 'react-native'
+import { View, Image, StyleSheet } from 'react-native'
 import colors from '../config/colors'
 import SelerInfo from '../components/SelerInfo'
+import AppText from '../components/AppText'
 
 const ItemListScreen = ({ image, title, subTitle }) => {
 	return (
 		<View style={styles.container}>
 			<Image style={styles.image} source={image} title={title} />
 			<View style={styles.textContainer}>
-				<Text style={styles.title}>{title}</Text>
-				<Text style={styles.subTitle}>{subTitle}</Text>
+				<AppText style={styles.title} numberOfLines={1}>
+					{title}
+				</AppText>
+				<AppText style={styles.subTitle}>{subTitle}</AppText>
 			</View>
 
 			<SelerInfo
@@ -17,7 +20,6 @@ const ItemListScreen = ({ image, title, subTitle }) => {
 				title="moshe hamedani"
 				subTitle="soem info"
 			/>
-			
 		</View>
 	)
 }
@@ -37,6 +39,7 @@ const styles = StyleSheet.create({
 	title: {
 		fontSize: 20,
 		fontWeight: '500',
+		color: 'red',
 	},
 	subTitle: {
 		color: colors.secondary,
